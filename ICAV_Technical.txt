@@ -1,5 +1,91 @@
 1. Write a simple program in any language you want that outputs "I'm on %HOSTNAME%" (HOSTNAME should be the actual host name on which the app is running) and deploy it to Github
+#!/bin/ksh
+
+print " Get hostname "
+SERVER="echo `hostname`"
+print"$SERVER"
+export QMGR=`$SERVER |cut -c1-2,5-10| tr [[:lower:]] [[:upper:]`
+print "Queue manager name $QMGR" 
+
+==============================================================================================================================================================
 2. Write a Dockerfile which will run your app
+
+FROM java:8-jdk-alpine
+COPY ./build/libs/nasapicture-0.0.1-SNAPSHOT.war /usr/app/
+WORKDIR /usr/app
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "nasapicture-0.0.1-SNAPSHOT.war"]
+
+==========================================================================================================================================================================
 3. Create Github Actions Pipeline to Build the Docker image and push to AWS ECR 
-4. Extend the Actions Pipeline to deploy the app to AWS EKS
+
+* Authenticate your Docker client to the Amazon ECR registry to which you intend to push your image. Authentication tokens must be obtained for each registry used, and the tokens are valid for 12 hours. For more information, see Registry Authentication.
+
+* If your image repository does not exist in the registry you intend to push to yet, create it. For more information, see Creating a Repository.
+
+* Identify the image to push. Run the docker images command to list the images on your system.
+ 
+* docker tag e9ae3c220b23 aws_account_id.dkr.ecr.region.amazonaws.com/my-web-app
+
+* docker push aws_account_id.dkr.ecr.region.amazonaws.com/my-web-app
+
+========================================================================================================================================================================
+
+4 Extend the Actions Pipeline to deploy the app to AWS EKS
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: my-namespace
+  labels:
+    app: my-app
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  namespace: my-namespace
+  labels:
+    app: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: nginx
+        image: nginx:1.19.2
+        ports:
+        - containerPort: 80
+  ==================================================================================================
+        
 5. Setup KubeCtl on AWS EKS
+
+Install the AWS CLI. To install the latest version of the AWS CLI, choose the tab with the name of the operating system that you'd like to install the AWS CLI on. ...
+Configure your AWS CLI credentials. ...
+Install and configure kubectl. ...
+Create your Amazon EKS cluster IAM role. ...
+Create your Amazon EKS cluster VPC.
+===============================================================================================================================
