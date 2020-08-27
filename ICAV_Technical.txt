@@ -1,0 +1,5 @@
+1. Write a simple program in any language you want that outputs "I'm on %HOSTNAME%" (HOSTNAME should be the actual host name on which the app is running) and deploy it to Github
+2. Write a Dockerfile which will run your app
+3. Create Github Actions Pipeline to Build the Docker image and push to AWS ECR 
+4. Extend the Actions Pipeline to deploy the app to AWS EKS
+5. Setup KubeCtl on AWS EKS
