@@ -1,0 +1,47 @@
+1. What is the role of AWS/Azure/GCP in DevOps?
+
+these all are cloud providers, Cloud computing is making use of the resources such as servers, storage, networking and software over the Internet.  
+Since cloud computing offers the pay-as-you-go model for enterprise applications, it is a much more sought after business model for enterprise applications
+
+
+
+2. How will you approach a project that needs to implement DevOps?
+
+Create a Competent Team
+Start with Small Initiatives
+Follow Agile Principles
+Prepare the Environment
+Customer Feedback
+
+
+3. Mention some of the core benefits of DevOps.
+
+Organizing a DevOps initiative
+Building the DevOps strategy
+Integrating infrastructure automation with CI/CD tools	
+Increasing the amount of test automation and aligning QA with development
+Ensuring total application performance monitoring	
+
+
+4. What are the different phases in DevOps?
+
+Continues integaration, continues deployment and continues delivery
+
+
+5. Explain the concept of branching in Git.
+
+Branching is a feature available in most modern version control systems. 
+Branching in other VCS's can be an expensive operation in both time and disk space. 
+In Git, branches are a part of your everyday development process. 
+Git branches are effectively a pointer to a snapshot of your changes
+
+
+6. What is a merge conflict in Git, and how can it be resolved?
+
+A merge conflict is an event that occurs when Git is unable to automatically 
+resolve differences in code between two commits.
+When all the changes in the code occur on different lines or in different files, 
+Git will successfully merge commits without your help.
+
+The most direct way to resolve a merge conflict is to edit the conflicted file.
+Open the yyyy.txt file in your favorite editor and lets simply remove all the conflict dividers.
