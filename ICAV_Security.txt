@@ -1,14 +1,8 @@
 
 1. What is DDoS attack? How do you deal with it?
 
-DDoS attacks achieve effectiveness by utilizing multiple compromised 
-computer systems as sources of attack traffic. Exploited machines can include 
-computers and other networked resources such as IoT devices.
-
-A DDoS attack requires an attacker to gain control of a network of online machines 
-in order to carry out an attack. Computers and other machines 
-are infected with malware, turning each one into a bot or zombie. 
-The attacker then has remote control over the group of bots, which is called a botnet
+DDoS attacks achieve effectiveness by utilizing multiple compromised computer systems as sources of attack traffic. Exploited machines can include 
+computers and other networked resources such as IoT devices.A DDoS attack requires an attacker to gain control of a network of online machines in order to carry out an attack. Computers and other machines are infected with malware, turning each one into a bot or zombie. The attacker then has remote control over the group of bots, which is called a botnet
 
 
 2. What are the benefits of having Policy management?
@@ -18,18 +12,15 @@ Policies help to manage legal risk and allow you to outline the benefits and
 opportunities your company provides to its workers
 it helps to improve workforce morale, worker retention and job satisfaction
 
-
 3. How HTTPS is different from HTTP?
 
 The only difference between the two protocols is that HTTPS uses TLS (Transport Layer Security)
 to encrypt normal HTTP requests and responses. 
 As a result HTTPS is far more secure than HTTP. 
 
-
-
 4. What TCP and UDP vulnerabilities are you familiar with?
 
-
+Yes 
 5. Explain OAuth
 
 OAuth is an open-standard authorization protocol or framework 
